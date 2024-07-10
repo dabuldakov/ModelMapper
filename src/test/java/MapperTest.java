@@ -20,6 +20,7 @@ class MapperTest {
         System.out.println("before");
         ArrayList<Class<?>> classes = new ArrayList<>();
         classes.add(DocDto.class);
+        classes.add(Doc.class);
         mapper = new Mapper(classes);
         modelMapper = modelMapper();
     }
@@ -133,6 +134,8 @@ class MapperTest {
         doc.setCar(getFirstCar());
         doc.setCars(List.of(getSecondCar(), getThirdCar()));
         doc.setCarsArray(carsArray);
+        doc.setFlag(true);
+        doc.setFlagSimple(false);
 
         return doc;
     }

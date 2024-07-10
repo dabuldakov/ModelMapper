@@ -45,6 +45,7 @@ public class Mapper {
         classHashSet.add(int.class);
         classHashSet.add(Integer.class);
         classHashSet.add(boolean.class);
+        classHashSet.add(Boolean.class);
         classHashSet.add(Date.class);
         classHashSet.add(Double.class);
         classHashSet.add(double.class);

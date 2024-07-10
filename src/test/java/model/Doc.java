@@ -6,6 +6,8 @@ public class Doc {
     private int id;
     private String number;
     private Date expiryDate;
+    private Boolean flag;
+    private boolean flagSimple;
     private Car car;
     private List<Car> cars;
     private Car[] carsArray;
@@ -22,6 +24,22 @@ public class Doc {
                 ", carsArray=" + Arrays.toString(carsArray) +
                 ", carQueue=" + carQueue +
                 '}';
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
+    }
+
+    public boolean isFlagSimple() {
+        return flagSimple;
+    }
+
+    public void setFlagSimple(boolean flagSimple) {
+        this.flagSimple = flagSimple;
     }
 
     public Queue<Car> getCarQueue() {

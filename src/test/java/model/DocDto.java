@@ -6,6 +6,9 @@ public class DocDto {
     private int id;
     private String number;
     private Date expiryDate;
+
+    private Boolean flag;
+    private boolean flagSimple;
     private CarDto car;
     private List<CarDto> cars;
     private CarDto[] carsArray;
@@ -22,6 +25,22 @@ public class DocDto {
                 ", carsArray=" + Arrays.toString(carsArray) +
                 ", carQueue=" + carQueue +
                 '}';
+    }
+
+    public boolean isFlagSimple() {
+        return flagSimple;
+    }
+
+    public void setFlagSimple(boolean flagSimple) {
+        this.flagSimple = flagSimple;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
     }
 
     public Queue<CarDto> getCarQueue() {
