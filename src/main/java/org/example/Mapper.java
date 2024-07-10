@@ -155,21 +155,21 @@ public class Mapper {
         return (Class<?>) parameterizedType.getActualTypeArguments()[0];
     }
 
-    private void createMetaDataSet(Class<?> type) {
-        if (metaDataSetters.get(type) == null) {
-            metaDataSetters.put(type, addMetaDataStructure(type, SET));
+    private void createMetaDataSet(Class<?> typeOut) {
+        if (metaDataSetters.get(typeOut) == null) {
+            metaDataSetters.put(typeOut, addMetaDataStructure(typeOut, SET));
         }
     }
 
-    private void createMetaDataGet(Class<?> type) {
-        if (metaDataGetters.get(type) == null) {
-            metaDataGetters.put(type, addMetaDataStructure(type, GET));
+    private void createMetaDataGet(Class<?> typeOut) {
+        if (metaDataGetters.get(typeOut) == null) {
+            metaDataGetters.put(typeOut, addMetaDataStructure(typeOut, GET));
         }
     }
 
-    private HashMap<String, MetaData> addMetaDataStructure(Class<?> typeIn, String setOrGet) {
+    private HashMap<String, MetaData> addMetaDataStructure(Class<?> typeOut, String setOrGet) {
         HashMap<String, MetaData> hashMap = new HashMap<>();
-        for (Method method : getMethodList(typeIn, setOrGet)) {
+        for (Method method : getMethodList(typeOut, setOrGet)) {
             MetaData metaData = new MetaData();
             Class<?> type = getType(method, setOrGet);
             if (collectionClassHashSet.contains(type)) {
@@ -222,24 +222,6 @@ public class Mapper {
         public MetaData() {
         }
 
-        public MetaData(String paramName, Method method, Class<?> type, Class<?> genericType) {
-            this.paramName = paramName;
-            this.method = method;
-            this.type = type;
-            this.genericType = genericType;
-        }
-
-        public MetaData(String paramName, Method method, Class<?> type) {
-            this.paramName = paramName;
-            this.method = method;
-            this.type = type;
-        }
-
-        public MetaData(String paramName, Method method) {
-            this.paramName = paramName;
-            this.method = method;
-        }
-
         public HashMap<String, MetaData> getMetaData() {
             return metaData;
         }
@@ -279,7 +261,5 @@ public class Mapper {
         public void setMethod(Method method) {
             this.method = method;
         }
-
-
     }
 }
